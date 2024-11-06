@@ -1,21 +1,12 @@
-# aangezien elk karakter die geen letter is een scheidingsteken is vragen ze eerst te splitsen
-from collections import defaultdict
-
-
-def woorden_splitsen(bestand_locatie: str):
-    try:
-        # open het bestand en lees de inhoud in
-        with open(bestand_locatie, "r") as file: # r = read = lezen, en we open het als bestand, mag eender welke naam zijn
-            tekst = file.read()
-
+def woorden_splitsen(bestandslocatie: str) -> list:
+    with open(bestandslocatie, 'r') as bestand:
+        tekst = bestand.read()
         woorden = tekst.split()
-        print(woorden)
+    return woorden
 
-    except FileNotFoundError:
-        print("File not found")
+woorden_splitsen("data.txt")
 
-# woorden_splitsen("data.txt")
-
+"""
 def woorden_tellen(bestand_locatie: str) -> dict:
     woorden = woorden_splitsen(bestand_locatie)
     telling = defaultdict(int)
@@ -24,6 +15,9 @@ def woorden_tellen(bestand_locatie: str) -> dict:
         telling[woord] += 1
 
     return dict(telling)
+
+woorden_tellen("data.txt")
+"""
 
 
 
