@@ -6,6 +6,8 @@ try:
     print( "100 /", numlist[i1], "=", 100 / numlist[i1] )
 
 #value error, toen ik a had ingegeven als input
+#deze oefening is eig niet zo heel handig aangezien je deze excepts toch niet vanbuiten moet leren, of net wel maar nu niet aangezien het openboek examen is"
+
 except ValueError:
     print("Fout: Ongeldige invoer, geef een numerieke waarde.")
 
