@@ -1,24 +1,24 @@
-def woorden_splitsen(bestandslocatie: str) -> list:
-    with open(bestandslocatie, 'r') as bestand:
-        tekst = bestand.read()
-        woorden = tekst.split()
+import re
+from collections import defaultdict
+
+
+def woorden_splitsen(bestand):
+    with open(bestand, 'r', encoding ='utf-8') as f:
+        tekst = f.read()
+
+    woorden = re.findall(r'[a-zA-Z]+', tekst)
+
     return woorden
 
-woorden_splitsen("data.txt")
+def woorden_tellen(bestand):
+    with open(bestand, 'r', encoding ='utf-8') as f:
+        tekst = f.read().lower()
 
-"""
-def woorden_tellen(bestand_locatie: str) -> dict:
-    woorden = woorden_splitsen(bestand_locatie)
-    telling = defaultdict(int)
+    woorden = re.findall(r'[a-zA-Z]+', tekst)
+
+    woord_frequentie = defaultdict(int)
+
     for woord in woorden:
-        woord = woord.lower()
-        telling[woord] += 1
+        woord_frequentie[woord] += 1
 
-    return dict(telling)
-
-woorden_tellen("data.txt")
-"""
-
-
-
-
+    return dict(woord_frequentie)
